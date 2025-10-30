@@ -8,7 +8,7 @@ from transformers import pipeline
 import plotly.express as px
 
 # YouTube API
-api_key = st.secrets["api_key"]
+api_key = st.secrets["API_KEY"]
 youtube = build("youtube", "v3", developerKey=api_key)
 
 # Fonksiyonlar
@@ -214,4 +214,5 @@ with con5:
 with con6:
     if "comments" in st.session_state:
         fig = get_chart(df['label'].value_counts()['olumlu'], df['label'].value_counts()['notr'], df['label'].value_counts()['olumsuz'])
+
         st.plotly_chart(fig, use_container_width=True)
