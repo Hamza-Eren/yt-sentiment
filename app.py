@@ -92,7 +92,8 @@ def load_model():
     return pipeline(
         "text-classification",
         model="HamzaEren/sentiment_model_final",
-        use_auth_token=st.secrets["HUGGINGFACE_TOKEN"]
+        use_auth_token=st.secrets["HUGGINGFACE_TOKEN"],
+        revision="main"
     )
     
 def get_chart(positive, neutral, negative):
@@ -216,3 +217,4 @@ with con6:
         fig = get_chart(df['label'].value_counts()['olumlu'], df['label'].value_counts()['notr'], df['label'].value_counts()['olumsuz'])
 
         st.plotly_chart(fig, use_container_width=True)
+
